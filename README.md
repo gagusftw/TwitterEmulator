@@ -43,9 +43,9 @@ This application is built off of a REST Client Template source, provided by Code
 
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
-- [RestClientTemplate] (https://github.com/codepath/android-rest-client-template/) - Template for a REST client to interact with Twitter API
-- [TimeFormatter.java] (https://github.com/nesquena/TimeFormatter) - To support converting from absolute JSON timestamp into relative timestamp
-- [EndlessRecyclerViewScrollListener.java] (https://gist.github.com/nesquena/d09dc68ff07e845cc622) - To support implementing infinite pagination within the application
+- [RestClientTemplate](https://github.com/codepath/android-rest-client-template/) - Template for a REST client to interact with Twitter API
+- [TimeFormatter.java](https://github.com/nesquena/TimeFormatter) - To support converting from absolute JSON timestamp into relative timestamp
+- [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) - To support implementing infinite pagination within the application
 
 ## License
 
