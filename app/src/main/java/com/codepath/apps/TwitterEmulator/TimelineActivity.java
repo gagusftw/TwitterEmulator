@@ -38,6 +38,7 @@ public class TimelineActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient(this);
         timeline = new ArrayList<>();
         adapter = new TweetsAdapter(this, timeline);
+        rvTimeline.setAdapter(adapter);
 
         //Setting up the refreshing of the tweet timeline
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -50,8 +51,17 @@ public class TimelineActivity extends AppCompatActivity {
                 swipeContainer.setRefreshing(false);
             }
         });
-        rvTimeline.setLayoutManager(new LinearLayoutManager(this));
-        rvTimeline.setAdapter(adapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvTimeline.setLayoutManager(linearLayoutManager);
+
+        //Setting up listener for infinite pagination
+        rvTimeline.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                loadMoreData();
+            }
+        });
 
         //Grab tweets JSON for timeline
         populateHomeTimeline();
@@ -69,7 +79,29 @@ public class TimelineActivity extends AppCompatActivity {
                     timeline.addAll(Tweet.fromJSONArray(json.jsonArray));
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
-                    Log.e(TAG, "JSONException initializing List<Tweet>", e);
+                    Log.e(TAG, "JSONException initializing timeline", e);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+                Log.e(TAG, "JSON HTTP response error");
+            }
+        });
+    }
+
+    //Helper method to help with infinite pagination HTTP request
+    private void loadMoreData() {
+        long lastID = Tweet.getLastID(timeline);
+        client.getNextPageTweets(lastID - 1, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
+                int size = timeline.size();
+                try {
+                    timeline.addAll(Tweet.fromJSONArray(json.jsonArray));
+                    adapter.notifyItemRangeInserted(size - 1, json.jsonArray.length());
+                } catch (JSONException e) {
+                    Log.e(TAG, "JSONException adding new tweets to timeline", e);
                 }
             }
 

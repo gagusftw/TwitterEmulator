@@ -12,6 +12,7 @@ import java.util.List;
 public class Tweet {
     public String body; //Text of tweet
     public String timestamp;    //Time that tweet was posted
+    public long id;
     public User user;
 
     //Load data into member variables from JSON
@@ -19,6 +20,7 @@ public class Tweet {
         Tweet tweet = new Tweet();
         tweet.body = jsonObject.getString("text");
         tweet.timestamp = jsonObject.getString("created_at");
+        tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
 
         return tweet;
@@ -34,6 +36,10 @@ public class Tweet {
         return tweetList;
     }
 
+    public static long getLastID(List<Tweet> tweetsList) {
+        return tweetsList.get(tweetsList.size() - 1).getID();
+    }
+
     public String getBody() {
         return body;
     }
@@ -45,4 +51,6 @@ public class Tweet {
     public User getUser() {
         return user;
     }
+
+    public long getID() { return id; }
 }
