@@ -15,6 +15,8 @@ public class Tweet {
     public long id;
     public User user;
 
+    public Tweet() {}
+
     //Load data into member variables from JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();

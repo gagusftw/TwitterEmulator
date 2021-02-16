@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="m0.47,24.03c-0.131,0 -0.259,-0.051 -0.354,-0.146 -0.125,-0.125 -0.175,-0.307 -0.131,-0.478l1.469,-5.711c0.022,-0.087 0.067,-0.166 0.131,-0.229l17.056,-17.057c0.585,-0.585 1.537,-0.585 2.122,0l2.828,2.828c0.585,0.585 0.585,1.537 0,2.122l-17.056,17.056c-0.063,0.063 -0.142,0.108 -0.229,0.131l-5.711,1.469c-0.042,0.01 -0.084,0.015 -0.125,0.015zM2.389,18.076 L1.165,22.836 5.925,21.612 22.884,4.652c0.195,-0.195 0.195,-0.512 0,-0.708l-2.828,-2.828c-0.195,-0.196 -0.512,-0.195 -0.708,0zM6.181,22.062h0.01z"/>
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="m20.091,8.652c-0.128,0 -0.256,-0.049 -0.354,-0.146l-4.243,-4.243c-0.195,-0.195 -0.195,-0.512 0,-0.707s0.512,-0.195 0.707,0l4.243,4.243c0.195,0.195 0.195,0.512 0,0.707 -0.097,0.097 -0.225,0.146 -0.353,0.146z"/>
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="m6.181,22.562c-0.128,0 -0.256,-0.049 -0.354,-0.146l-4.243,-4.243c-0.195,-0.195 -0.195,-0.512 0,-0.707s0.512,-0.195 0.707,0l4.243,4.243c0.195,0.195 0.195,0.512 0,0.707 -0.097,0.097 -0.225,0.146 -0.353,0.146z"/>
+</vector>
+<!--<div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
